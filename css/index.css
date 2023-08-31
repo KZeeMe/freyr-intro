@@ -25,10 +25,13 @@ h2 {
 
 h1 {
   text-shadow: 1px 2px 3px rgba(0, 10, 30, 0.5);
+  text-align: center;
 }
 
 h2 {
   font-size: 1.5rem;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 h3 {
@@ -41,6 +44,12 @@ main {
   hyphens: auto;
 }
 
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  max-width: 40%;
+}
 button {
   display: block;
   width: 250px;
@@ -81,6 +90,10 @@ button {
   display: block;
 }
 
+.margin-less {
+  padding-inline-start: 0;
+}
+
 form {
   /*width: 100%;
   max-width: 768px;*/
@@ -96,12 +109,17 @@ input {
 
 .card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 1rem;
   text-decoration: none;
   background-color: rgba(250, 100, 50, 0.1);
-  margin: 20px;
+  margin: 20px 0;
 }
+
+/*.date {
+  align-items: right;
+} */
 
 .jsTag {
   border-radius: 10px;
@@ -112,8 +130,29 @@ input {
   margin: 0.5rem;
 }
 
+/*
 .jsUserMessageSpan {
-  margin: 0 10px;
+  margin: 0 2.8rem 0 0;
+}
+*/
+
+#messageList {
+  margin-top: -0.2rem;
+}
+
+/*
+#messageList .jsBtn {
+  display: inline;
+  text-align: right;
+}
+*/
+
+.jsCopyrightSpan {
+  margin: 10px;
+}
+
+.jsCopyright {
+  max-width: 40%;
 }
 
 @media (max-width: 768px) {
