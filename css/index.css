@@ -48,7 +48,8 @@ nav ul {
   display: flex;
   list-style: none;
   gap: 20px;
-  max-width: 40%;
+  /*max-width: 40%; */
+  justify-content: flex-end;
 }
 button {
   display: block;
@@ -152,7 +153,8 @@ input {
 }
 
 .jsCopyright {
-  max-width: 40%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media (max-width: 768px) {
