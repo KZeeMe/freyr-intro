@@ -100,7 +100,10 @@ githubRequest.addEventListener("load", () => {
     let projectDay = projectDate.slice(8, 10);
     let formattedDate = `${projectMonth}-${projectDay}-${projectYear}`;
 
-    project.innerHTML = `<a href="${repositories[i].svn_url}" target="_blank">${repositories[i].name}</a> created ${formattedDate}`;
-    projectList.appendChild(project);
+    // Hide Github repos that are empty
+    if (repositories[i].size != 0) {
+      project.innerHTML = `<a href="${repositories[i].svn_url}" target="_blank">${repositories[i].name}</a> created ${formattedDate}`;
+      projectList.appendChild(project);
+    }
   }
 });
