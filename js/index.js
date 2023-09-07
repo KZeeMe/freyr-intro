@@ -80,3 +80,30 @@ messageForm.addEventListener("submit", (e) => {
 
   e.target.reset();
 });
+
+const githubRequest = new XMLHttpRequest();
+githubRequest.open("GET", "https://api.github.com/users/KZeeMe/repos");
+githubRequest.send();
+githubRequest.addEventListener("load", () => {
+  const repositories = JSON.parse(githubRequest.response);
+  console.log(repositories);
+
+  const projectSection = document.getElementById("projects");
+  const projectList = projectSection.querySelector("ul");
+
+  for (let i = 0; i < repositories.length; i++) {
+    let project = document.createElement("li");
+    let projectDate = repositories[i].created_at;
+
+    let projectYear = projectDate.slice(0, 4);
+    let projectMonth = projectDate.slice(5, 7);
+    let projectDay = projectDate.slice(8, 10);
+    let formattedDate = `${projectMonth}-${projectDay}-${projectYear}`;
+
+    // Hide Github repos that are empty
+    if (repositories[i].size != 0) {
+      project.innerHTML = `<a href="${repositories[i].svn_url}" target="_blank">${repositories[i].name}</a> created ${formattedDate}`;
+      projectList.appendChild(project);
+    }
+  }
+});

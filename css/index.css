@@ -86,8 +86,14 @@ button {
 
 #experience,
 #skills,
+#projects,
 #connect {
   display: block;
+}
+
+#projects ul {
+  list-style: none;
+  text-align: center;
 }
 
 .margin-less {
