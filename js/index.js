@@ -96,7 +96,7 @@ fetch("https://api.github.com/users/KZeeMe/repos", { mode: "cors" })
     return githubRequest.json();
   })
   .then(function (githubRequest) {
-    const repositories = JSON.parse(githubRequest.response);
+    const repositories = githubRequest;
     console.log(repositories);
 
     const projectSection = document.getElementById("projects");
