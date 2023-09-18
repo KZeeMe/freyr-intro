@@ -81,15 +81,6 @@ messageForm.addEventListener("submit", (e) => {
   e.target.reset();
 });
 
-/*
-// Working AJAX Call.
-const githubRequest = new XMLHttpRequest();
-githubRequest.open("GET", "https://api.github.com/users/KZeeMe/repos");
-githubRequest.send();
-githubRequest.addEventListener("load", () => {
-  const repositories = JSON.parse(githubRequest.response);
-  console.log(repositories);
-*/
 
 fetch("https://api.github.com/users/KZeeMe/repos", { mode: "cors" })
   .then(function (githubRequest) {
