@@ -57,12 +57,9 @@ messageForm.addEventListener("submit", (e) => {
   newMessage.innerHTML = `<a href="${userEmail}" mailto:"${userEmail}">${userName}</a> - wrote:<span class="jsUserMessageSpan">${userMessage}</span>`;
 
   let removeButton = document.createElement("input");
-  //removeButton.type = "button";
   removeButton.setAttribute("type", "button");
 
   removeButton.value = "remove";
-  //removeButton.style.width = "60px";
-  //removeButton.style.color = "black";
   removeButton.classList.add("jsBtn");
 
   newMessage.appendChild(removeButton);
@@ -81,15 +78,6 @@ messageForm.addEventListener("submit", (e) => {
   e.target.reset();
 });
 
-/*
-// Working AJAX Call.
-const githubRequest = new XMLHttpRequest();
-githubRequest.open("GET", "https://api.github.com/users/KZeeMe/repos");
-githubRequest.send();
-githubRequest.addEventListener("load", () => {
-  const repositories = JSON.parse(githubRequest.response);
-  console.log(repositories);
-*/
 
 fetch("https://api.github.com/users/KZeeMe/repos", { mode: "cors" })
   .then(function (githubRequest) {
