@@ -81,29 +81,40 @@ messageForm.addEventListener("submit", (e) => {
   e.target.reset();
 });
 
+/*
+// Working AJAX Call.
 const githubRequest = new XMLHttpRequest();
 githubRequest.open("GET", "https://api.github.com/users/KZeeMe/repos");
 githubRequest.send();
 githubRequest.addEventListener("load", () => {
   const repositories = JSON.parse(githubRequest.response);
   console.log(repositories);
+*/
 
-  const projectSection = document.getElementById("projects");
-  const projectList = projectSection.querySelector("ul");
+fetch("https://api.github.com/users/KZeeMe/repos", { mode: "cors" })
+  .then(function (githubRequest) {
+    return githubRequest.json();
+  })
+  .then(function (githubRequest) {
+    const repositories = githubRequest;
+    console.log(repositories);
 
-  for (let i = 0; i < repositories.length; i++) {
-    let project = document.createElement("li");
-    let projectDate = repositories[i].created_at;
+    const projectSection = document.getElementById("projects");
+    const projectList = projectSection.querySelector("ul");
 
-    let projectYear = projectDate.slice(0, 4);
-    let projectMonth = projectDate.slice(5, 7);
-    let projectDay = projectDate.slice(8, 10);
-    let formattedDate = `${projectMonth}-${projectDay}-${projectYear}`;
+    for (let i = 0; i < repositories.length; i++) {
+      let project = document.createElement("li");
+      let projectDate = repositories[i].created_at;
 
-    // Hide Github repos that are empty
-    if (repositories[i].size != 0) {
-      project.innerHTML = `<a href="${repositories[i].svn_url}" target="_blank">${repositories[i].name}</a> created ${formattedDate}`;
-      projectList.appendChild(project);
+      let projectYear = projectDate.slice(0, 4);
+      let projectMonth = projectDate.slice(5, 7);
+      let projectDay = projectDate.slice(8, 10);
+      let formattedDate = `${projectMonth}-${projectDay}-${projectYear}`;
+
+      // Hide Github repos that are empty
+      if (repositories[i].size != 0) {
+        project.innerHTML = `<a href="${repositories[i].svn_url}" target="_blank">${repositories[i].name}</a> created ${formattedDate}`;
+        projectList.appendChild(project);
+      }
     }
-  }
-});
+  });
