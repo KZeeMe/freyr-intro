@@ -13,6 +13,12 @@ body {
   margin: 1rem;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 a {
   color: #cc4e13;
   text-decoration: none;
@@ -89,6 +95,7 @@ button {
 #projects,
 #connect {
   display: block;
+  text-align: center;
 }
 
 #projects ul {
@@ -105,12 +112,13 @@ form {
   max-width: 768px;*/
   display: flex;
   flex-direction: column;
-  /*align-items: center; */
+  align-items: center;
   padding: 2rem 2rem 1.5rem;
 }
 
 input {
   padding: 0.25rem 0.5rem;
+  width: 50%;
 }
 
 .card {
@@ -136,11 +144,9 @@ input {
   margin: 0.5rem;
 }
 
-/*
 .jsUserMessageSpan {
-  margin: 0 2.8rem 0 0;
+  padding: 5%;
 }
-*/
 
 #messageList {
   margin-top: -0.2rem;
